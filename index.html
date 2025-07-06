@@ -9,28 +9,28 @@
 </head>
 <body>
   <h1>🎮 Game Builder™</h1>
-  <p>Created by <strong>Seigh_sword</strong> – build your own games with ease!</p>
+  <p>Created by <strong>Seigh_sword</strong></p>
 
   <!-- [+] Add Button -->
   <button id="addButton">[ + ] Add</button>
 
   <!-- Main Dropdown Menu -->
   <div id="mainDropdown" class="panel hidden">
-    <div class="dropdown-option" onclick="openPanel('behaviour')">➕ Behaviour</div>
-    <div class="dropdown-option" onclick="toggleObjectDropdown()">➕ Add Object</div>
-    <div class="dropdown-option" onclick="selectOption('image')">➕ Add Image</div>
-    <div class="dropdown-option" onclick="selectOption('video')">➕ Add Video</div>
-    <div class="dropdown-option" onclick="selectOption('script')">➕ Add JS Script</div>
+    <div class="dropdown-option" data-action="behaviour">➕ Behaviour</div>
+    <div class="dropdown-option" data-action="object">➕ Add Object</div>
+    <div class="dropdown-option" data-action="image">➕ Add Image</div>
+    <div class="dropdown-option" data-action="video">➕ Add Video</div>
+    <div class="dropdown-option" data-action="script">➕ Add JS Script</div>
   </div>
 
-  <!-- Object Submenu -->
+  <!-- Object Dropdown -->
   <div id="objectDropdown" class="panel hidden">
-    <div class="dropdown-option" onclick="addObject('square')">Square</div>
-    <div class="dropdown-option" onclick="addObject('circle')">Circle</div>
-    <div class="dropdown-option" onclick="addObject('triangle')">Triangle</div>
-    <div class="dropdown-option" onclick="addObject('cube')">Cube</div>
-    <div class="dropdown-option" onclick="addObject('sphere')"> Sphere</div>
-    <div class="dropdown-option" onclick="addObject('cone')"> Cone</div>
+    <div class="dropdown-option" data-object="square">🟥 Square</div>
+    <div class="dropdown-option" data-object="circle">⚪ Circle</div>
+    <div class="dropdown-option" data-object="triangle">🔺 Triangle</div>
+    <div class="dropdown-option" data-object="cube">🧊 Cube</div>
+    <div class="dropdown-option" data-object="sphere">🪐 Sphere</div>
+    <div class="dropdown-option" data-object="cone">🔻 Cone</div>
   </div>
 
   <!-- Behaviour Panel -->
@@ -44,6 +44,43 @@
 
   <!-- Game Canvas Area -->
   <div id="gameCanvas"></div>
+
+  <script>
+    // Core UI toggle logic
+    const addButton = document.getElementById("addButton");
+    const mainDropdown = document.getElementById("mainDropdown");
+    const objectDropdown = document.getElementById("objectDropdown");
+    const behaviourPanel = document.getElementById("behaviourPanel");
+
+    addButton.onclick = () => {
+      mainDropdown.classList.toggle("hidden");
+      objectDropdown.classList.add("hidden");
+      behaviourPanel.classList.add("hidden");
+    };
+
+    // Handle main dropdown options
+    document.querySelectorAll('#mainDropdown .dropdown-option').forEach(option => {
+      option.onclick = () => {
+        const action = option.dataset.action;
+        mainDropdown.classList.add("hidden");
+
+        if (action === "behaviour") {
+          behaviourPanel.classList.remove("hidden");
+        } else if (action === "object") {
+          objectDropdown.classList.remove("hidden");
+        } else {
+          alert(`Clicked on: ${action} (not implemented yet)`);
+        }
+      };
+    });
+
+    // Handle object dropdown (just placeholder for now)
+    document.querySelectorAll('#objectDropdown .dropdown-option').forEach(obj => {
+      obj.onclick = () => {
+        alert(`Object "${obj.dataset.object}" will be added soon!`);
+        objectDropdown.classList.add("hidden");
+      };
+    });
+  </script>
 </body>
 </html>
-

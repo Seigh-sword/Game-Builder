@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Builder™ by Seigh_sword</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="behaviour.js" defer></script>
+  <script src="gamebuilder.js" defer></script>
+</head>
+<body>
+  <h1>🎮 Game Builder™</h1>
+  <p>Created by <strong>Seigh_sword</strong> – build your own games with ease!</p>
+
+  <!-- [+] Add Button -->
+  <button id="addButton">[ + ] Add</button>
+
+  <!-- Main Dropdown Menu -->
+  <div id="mainDropdown" class="panel hidden">
+    <div class="dropdown-option" onclick="openPanel('behaviour')">➕ Behaviour</div>
+    <div class="dropdown-option" onclick="toggleObjectDropdown()">➕ Add Object</div>
+    <div class="dropdown-option" onclick="selectOption('image')">➕ Add Image</div>
+    <div class="dropdown-option" onclick="selectOption('video')">➕ Add Video</div>
+    <div class="dropdown-option" onclick="selectOption('script')">➕ Add JS Script</div>
+  </div>
+
+  <!-- Object Submenu -->
+  <div id="objectDropdown" class="panel hidden">
+    <div class="dropdown-option" onclick="addObject('square')">Square</div>
+    <div class="dropdown-option" onclick="addObject('circle')">Circle</div>
+    <div class="dropdown-option" onclick="addObject('triangle')">Triangle</div>
+    <div class="dropdown-option" onclick="addObject('cube')">Cube</div>
+    <div class="dropdown-option" onclick="addObject('sphere')"> Sphere</div>
+    <div class="dropdown-option" onclick="addObject('cone')"> Cone</div>
+  </div>
+
+  <!-- Behaviour Panel -->
+  <div id="behaviourPanel" class="panel hidden">
+    <h2>🎛️ Behaviour Settings</h2>
+    <label>Gravity: <input type="number" id="gravityInput" value="9.8"></label><br>
+    <label>Jump: <input type="checkbox" id="jumpToggle" checked></label><br>
+    <label>Move: <input type="checkbox" id="moveToggle" checked></label><br>
+    <label>Add AI: <input type="checkbox" id="aiToggle"></label><br>
+  </div>
+
+  <!-- Game Canvas Area -->
+  <div id="gameCanvas"></div>
+</body>
+</html>
 

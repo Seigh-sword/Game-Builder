@@ -12,25 +12,25 @@
   <p>Created by <strong>Seigh_sword</strong></p>
 
   <!-- [+] Add Button -->
-  <button id="addButton">[ + ] Add</button>
+  <button id="addButton">➕</button>
 
   <!-- Main Dropdown Menu -->
   <div id="mainDropdown" class="panel hidden">
-    <div class="dropdown-option" data-action="behaviour">➕ Behaviour</div>
-    <div class="dropdown-option" data-action="object">➕ Add Object</div>
-    <div class="dropdown-option" data-action="image">➕ Add Image</div>
-    <div class="dropdown-option" data-action="video">➕ Add Video</div>
-    <div class="dropdown-option" data-action="script">➕ Add JS Script</div>
+    <div class="dropdown-option" data-action="behaviour"> Add Behaviour</div>
+    <div class="dropdown-option" data-action="object"> Add Object</div>
+    <div class="dropdown-option" data-action="image"> Add Image</div>
+    <div class="dropdown-option" data-action="video"> Add Video</div>
+    <div class="dropdown-option" data-action="script">Add JS Script</div>
   </div>
 
   <!-- Object Dropdown -->
   <div id="objectDropdown" class="panel hidden">
-    <div class="dropdown-option" data-object="square">🟥 Square</div>
-    <div class="dropdown-option" data-object="circle">⚪ Circle</div>
-    <div class="dropdown-option" data-object="triangle">🔺 Triangle</div>
-    <div class="dropdown-option" data-object="cube">🧊 Cube</div>
-    <div class="dropdown-option" data-object="sphere">🪐 Sphere</div>
-    <div class="dropdown-option" data-object="cone">🔻 Cone</div>
+    <div class="dropdown-option" data-object="square"> Square</div>
+    <div class="dropdown-option" data-object="circle"> Circle</div>
+    <div class="dropdown-option" data-object="triangle"> Triangle</div>
+    <div class="dropdown-option" data-object="cube"> Cube</div>
+    <div class="dropdown-option" data-object="sphere"> Sphere</div>
+    <div class="dropdown-option" data-object="cone"> Cone</div>
   </div>
 
   <!-- Behaviour Panel -->
@@ -69,7 +69,7 @@
         } else if (action === "object") {
           objectDropdown.classList.remove("hidden");
         } else {
-          alert(`Clicked on: ${action} (not implemented yet)`);
+          alert(Clicked on: ${action} (not implemented yet));
         }
       };
     });
@@ -77,7 +77,7 @@
     // Handle object dropdown (just placeholder for now)
     document.querySelectorAll('#objectDropdown .dropdown-option').forEach(obj => {
       obj.onclick = () => {
-        alert(`Object "${obj.dataset.object}" will be added soon!`);
+        alert(Object "${obj.dataset.object}" will be added soon!);
         objectDropdown.classList.add("hidden");
       };
     });
